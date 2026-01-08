@@ -1109,7 +1109,7 @@
 ### TravelMethod
 The method of travel for player or mob
 - WALK (1) - Walking normally (default if on ground)
-- SWIM_WATER (2) - Swimming in water
+- SWIM_WATER (2) - Swimming in water
 - FALL (3) - In the air when not flying (Falling up or down)
 - CLIMB (4) - Climbing a ladder
 - SWIM_LAVA (5) - Swimming in lava
@@ -1240,14 +1240,14 @@ Lists all mobs that are considered monsters.
 - DAYLIGHT_CYCLE *(DE)* - time will advance in the game 
 - MOB_LOOT *(DE)* - mobs will drop loot upon dying 
 - MOB_SPAWNING *(DE)* - mobs are able to spawn 
-- MOB_GRIEFING *(DE)* - mobs can affect the game world (for example, endermen picking up blocks, or creepers exploding the environment) 
-- WEATHER_CYCLE *(DE)* - weather will change naturally 
-- BLOCK_DROPS *(D)* - blocks that are successfully mined will drop as an item and be collectible by players 
-- KEEP_INVENTORY *(DE)* - players will not lose their inventory upon dying
-- COMMAND_BLOCK_OUTPUT *(E)*
-- DO_FIRE_TICK *(E)*
+- MOB_GRIEFING *(DE)* - mobs can affect the game world (for example, endermen picking up blocks, or creepers exploding the environment) 
+- WEATHER_CYCLE *(DE)* - weather will change naturally 
+- BLOCK_DROPS *(D)* - blocks that are successfully mined will drop as an item and be collectible by players 
+- KEEP_INVENTORY *(DE)* - players will not lose their inventory upon dying
+- COMMAND_BLOCK_OUTPUT *(E)*
+- DO_FIRE_TICK *(E)*
 - NATURAL_REGENERATION *(E)*
-- TILE_DROPS *(E)*
+- TILE_DROPS *(E)*
 - ENTITY_DROPS *(E)*
 - SHOW_COORDINATES *(E)*
 - TNT_EXPLODES *(E)*
@@ -1262,7 +1262,7 @@ TODO
 ## Inventory Slot Layout
 ```
 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 |
-|----|----|----|----|----|----|----|----|----|
+|----|----|----|----|----|----|----|----|----|
 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 |
 |----|----|----|----|----|----|----|----|----|
 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 |
