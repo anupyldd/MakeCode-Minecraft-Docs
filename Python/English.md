@@ -5,6 +5,7 @@
   - [Blocks](#blocks)
   - [Mobs](#mobs)
   - [Agent](#agent)
+  - [Gameplay](#gameplay)
 - [Classes](#classes)
 - [Enums](#enums)
 - [Types](#types)
@@ -827,11 +828,129 @@ Creates a new relative position: ~East/West, ~up/down, ~South/North
   *(none)*
 
 
+
+## Gameplay
+
+* #### `gameplay.set_weather(weather)`
+
+  **Description:** Changes the current weather
+  
+  **Parameters:**
+
+  * `weather`: `number` – the desired weather
+
+* #### `gameplay.weather_query()`
+
+  **Description:** Gets the current weather in the game world
+  
+  **Parameters:**
+  *(none)*
+
+* #### `gameplay.toggle_downfall()`
+
+  **Description:** Starts raining if it isn’t, or stops raining if it is
+  
+  **Parameters:**
+  *(none)*
+
+* #### `gameplay.time_set(time)`
+
+  **Description:** Sets the current time of day to a preset time or a custom hour, in game ticks
+  
+  **Parameters:**
+
+  * `time`: `number` – the desired time of day
+
+* #### `gameplay.time_add(amount)`
+
+  **Description:** Adds ticks to the current time of day
+  
+  **Parameters:**
+
+  * `amount`: `number` – the number of ticks to add
+
+* #### `gameplay.set_difficulty(difficulty)`
+
+  **Description:** Changes the game difficulty
+  
+  **Parameters:**
+
+  * `difficulty`: `GameDifficulty` – the new difficulty level for the game
+
+* #### `gameplay.set_game_mode(mode, player)`
+
+  **Description:** Changes the game mode for the selected players
+  
+  **Parameters:**
+
+  * `mode`: `GameMode` – the new game mode
+  * `player`: `TargetSelector` – a selector for the players whose game mode is changed
+
+* #### `gameplay.title(target, title, subTitle)`
+
+  **Description:** Shows a title and subtitle to the selected targets
+  
+  **Parameters:**
+
+  * `target`: `TargetSelector` – determines which players receive the title
+  * `title`: `str` – the large font title to display
+  * `subTitle`: `str` – the secondary title to display (optional)
+
+* #### `gameplay.time_query(query)`
+
+  **Description:** Gets the current time of day, in game ticks
+  
+  **Parameters:**
+
+  * `query`: `TimeQuery` – the type of time to query
+
+* #### `gameplay.is_daylight_time(query)`
+
+  **Description:** Checks whether the specified time is daylight time
+  
+  **Parameters:**
+
+  * `query`: `DayTime` – the time of day to query
+
+* #### `gameplay.xp(amount, target)`
+
+  **Description:** Gives experience points to the selected players
+  
+  **Parameters:**
+
+  * `amount`: `number` – the number of experience points to give
+  * `target`: `TargetSelector` – selects the players who receive the experience
+
+* #### `gameplay.set_game_rule(rule, enabled)`
+
+  **Description:** Enables or disables a game rule
+  
+  **Parameters:**
+
+  * `rule`: `GameRule` – the game rule to change
+  * `enabled`: `bool` – set to `True` to enable or `False` to disable
+
+* #### `gameplay.time(time)`
+
+  **Description:** Represents a preset time of the day
+  
+  **Parameters:**
+
+  * `time`: `DayTime` – the preset time of day
+
+* #### `gameplay.dismiss_chat()`
+
+  **Description:** Closes the chat window if it is open (EE only)
+  
+  **Parameters:**
+  *(none)*
+
+
 ---
 
 # Classes
 
-## TargetSelector
+### TargetSelector
 (method) TargetSelector.at_coordinate(p: Position): None
 Give new coordinates, a position, to a target selector. 
 p: set the selector to these coordinates
@@ -857,7 +976,7 @@ Return a string that has the game name (notation) for this target selector. When
 
 # Enums
 
-TravelMethod
+### TravelMethod
 The method of travel for player or mob
 - WALK (1) - Walking normally (default if on ground)
 - SWIM_WATER (2) - Swimming in water
@@ -873,7 +992,7 @@ The method of travel for player or mob
 - TELEPORT (12) - Teleport
 - UNKNOWN (-1) - Unknown travel method
 
-FillOperation
+### FillOperation
 Fill options for exixting blocks. Control keeping, replacing, or destroying existing blocks
 - DESTROY - Replaces all blocks (including air) in the fill region with the specified block, dropping the existing blocks (including those that are unchanged) and block contents as entities as if they had been mined with an unenchanted diamond shovel or pickaxe. (Blocks that can only be mined with shears, such as vines, will not drop; neither will liquids.)
 - HOLLOW - Replaces only blocks on the outer edge of the fill region with the specified block. Inner blocks are changed to air, dropping their contents as entities but not themselves. If the fill region has no inner blocks (because it is smaller than three blocks in at least one dimension), acts like replace.
@@ -881,17 +1000,17 @@ Fill options for exixting blocks. Control keeping, replacing, or destroying exis
 - OUTLINE - Replaces only blocks on the outer edge of the fill region with the specified block. Inner blocks are not affected. If the fill region has no inner blocks (because it is smaller than three blocks in at least one dimension), acts like replace.
 - REPLACE - Replaces all blocks (including air) in the fill region with the specified block, without dropping blocks or block contents as entities.
 
-CompassDirection
+### CompassDirection
 - WEST
 - EAST
 - NORTH
 - SOUTH
 
-TurnDirection
+### TurnDirection
 - LEFT
 - RIGHT
 
-SixDirection
+### SixDirection
 - FORWARD 
 - BACK 
 - LEFT 
@@ -899,7 +1018,7 @@ SixDirection
 - UP 
 - DOWN
 
-LeverPosition
+### LeverPosition
 Positions for aligning a lever when on or off
 - BLOCK_BOTTOM_EAST_WHEN_OFF
 - BLOCK_BOTTOM_POINTS_SOUTH_WHEN_OFF
@@ -910,24 +1029,24 @@ Positions for aligning a lever when on or off
 - BLOCK_SIDE_FACING_NORTH
 - BLOCK_SIDE_FACING_SOUTH
 
-ComparatorMode
+### ComparatorMode
 Comparator modes
 - COMPARE
 - SUBTRACT
 
-TestForBlocksMask
+### TestForBlocksMask
 - ALL - Every block in the source and destination regions must match exactly.
 - MASKED - Air blocks in the source region will match any block in the destination region.
 
-CloneMode
+### CloneMode
 - FORCE - The cloned region is overwritten by the destination region if the two regions overlap.
 - MOVE - the cloned region is replaced with air after the cloning.
 - NORMAL - The cloned region is not changed; if the destination region overlaps it, then the clone operation does nothing.
 
-MonsterMob
+### MonsterMob
 Lists all mobs that are considered monsters.
 
-TargetSelectorKind
+### TargetSelectorKind
 - ALL_ENTITIES - Select all players and mobs.
 - ALL_PLAYERS - Select all players in the world.
 - LOCAL_PLAYER - Select the current player (you).
@@ -935,20 +1054,73 @@ TargetSelectorKind
 - NEAREST_PLAYER - Select the player nearest to the world origin.
 - RANDOM_PLAYER - Select a random player in the world.
 
-GameMode
-- ADVENTURE
-- SURVIVAL
-- CREATIVE
+### GameMode
+- SURVIVAL - This is the default Minecraft playing mode. Players have to gather the materials they want to craft or place. The player’s health, hunger, experience and oxygen are enabled. Tools and equipment durability is enabled. In this mode, the player can die and will return to the spawn point if they do.
+- CREATIVE - Players can get an unlimited amount of blocks or items in the game. Players can fly around in the world and destroy blocks instantly. This mode is meant for players that want to spend time building things.
+- ADVENTURE - Kind of the same as survival mode, but it has more restrictions on placing certain blocks and destroying blocks in the game world. This mode is meant for playing in worlds where the players must solve puzzles or complete challenges.
 
-AgentAssist
+### AgentAssist
 - PLACE_ON_MOVE - the agent will place a block from its active inventory slot every time it moves.
 - PLACE_FROM_ANY_SLOT - if there are no blocks or items in the agent’s active inventory slot, the agent will try to use other inventory slots. 
 - DESTROY_OBSTACLES - if the agent can’t move because of an obstacle, it will destroy the obstacle before moving.
 - DETROY_OBSTACLES - seems to be a typo left in the code, functions the same was as `DESTROY_OBSTACLES`.
 
-AgentDetection
+### AgentDetection
 - BLOCK - detect any block that can be destroyed.
 - REDSTONE - detect redstone only.
+
+### Weather
+- CLEAR - sunny, no rain or storms
+- RAIN - rainy, no sun
+- THUNDER - thunderstorm, lot’s of rain
+
+### DayTime
+- DAY (0) - Equals 1,000 ticks (7:00 AM)
+- MIDDAY (6000) - Equals 6,000 ticks (12:00 PM)
+- DUSK (12000) - Equals 12,000 ticks (6:00 PM)
+- NIGHT (14000) - Equals 13,000 ticks (7:00 PM)
+- MIDNIGHT (18000) - Equals to 18,000 ticks (12:00 AM)
+- DAWN (23000) - Equals 0 ticks (6:00 AM)
+
+### GameDifficulty
+- PEACEFUL - monsters cannot spawn and you get more hearts quickly.
+- EASY - easy gameplay level.
+- NORMAL - normal gameplay level.
+- HARD - the really difficult gameplay level.
+
+### TimeQuery
+- DAY - the number of game days since the creation of the world
+- DAY_TIME - the current time of day in the game.
+- GAME_TIME - the number of game ticks since the creation of the world.
+- REAL_LIFE - the real-life time of day, expressed in Minecraft game ticks.
+
+### GameRule
+
+*For some reason some of these are differ between the docs and the code editor autocomplete suggestions. Some of these seem like different names for the same thing, but I haven't tested to see if it's so.*
+- *(D) - present only in the docs.*
+- *(E) - present only in the code editor.*
+- *(DE) - present in both the docs and the editor.*
+
+**Rules:**
+    
+- PV_P *(DE)* - players can attack each other 
+- DROWNING_DAMAGE *(DE)* - staying for too long under water will damage the player 
+- FALL_DAMAGE *(DE)* - falling from really high will damage the player
+- FIRE_DAMAGE *(DE)* - fire will damage the player 
+- DAYLIGHT_CYCLE *(DE)* - time will advance in the game 
+- MOB_LOOT *(DE)* - mobs will drop loot upon dying 
+- MOB_SPAWNING *(DE)* - mobs are able to spawn 
+- MOB_GRIEFING *(DE)* - mobs can affect the game world (for example, endermen picking up blocks, or creepers exploding the environment) 
+- WEATHER_CYCLE *(DE)* - weather will change naturally 
+- BLOCK_DROPS *(D)* - blocks that are successfully mined will drop as an item and be collectible by players 
+- KEEP_INVENTORY *(DE)* - players will not lose their inventory upon dying
+- COMMAND_BLOCK_OUTPUT *(E)*
+- DO_FIRE_TICK *(E)*
+- NATURAL_REGENERATION *(E)*
+- TILE_DROPS *(E)*
+- ENTITY_DROPS *(E)*
+- SHOW_COORDINATES *(E)*
+- TNT_EXPLODES *(E)*
 
 ---
 
