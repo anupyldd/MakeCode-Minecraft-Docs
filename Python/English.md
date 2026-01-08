@@ -1,12 +1,15 @@
 ### Table of contents:
 - [Functions](#functions)
-    - [Common](#common)
-    - [Player](#player)
-    - [Blocks](#blocks)
-    - [Mobs](#mobs)
+  - [Common](#common)
+  - [Player](#player)
+  - [Blocks](#blocks)
+  - [Mobs](#mobs)
+  - [Agent](#agent)
 - [Classes](#classes)
 - [Enums](#enums)
 - [Types](#types)
+- [Other](#other)
+  - [Inventory Slot Layout](#inventory-slot-layout)
     
 # Functions
 
@@ -609,6 +612,220 @@ Creates a new relative position: ~East/West, ~up/down, ~South/North
 
   * `target`: `TargetSelector` – the target to query
 
+## Agent
+
+* #### `agent.teleport_to_player()`
+
+  **Description:** Teleports the agent to the player
+  
+  **Parameters:**
+  *(none)*
+
+* #### `agent.move(direction, blocks)`
+
+  **Description:** Requests the agent to move in the specified direction
+  
+  **Parameters:**
+
+  * `direction`: `number` – the direction to move the agent, such as `FORWARD`
+  * `blocks`: `number` – how far the agent should move, in blocks, e.g. 1
+
+* #### `agent.turn(direction)`
+
+  **Description:** Turns the agent in the specified direction
+  
+  **Parameters:**
+
+  * `direction`: `number` – the turn direction, e.g. `TurnDirection.Left`
+
+* #### `agent.get_position()`
+
+  **Description:** Returns the agent's position in world coordinates
+  
+  **Parameters:**
+  *(none)*
+
+* #### `agent.get_orientation()`
+
+  **Description:** Returns the agent's orientation, in degrees
+  
+  **Parameters:**
+  *(none)*
+
+* #### `agent.teleport(pos, dir)`
+
+  **Description:** Teleports the agent to the specified coordinates facing the specified orientation
+  
+  **Parameters:**
+
+  * `pos`: `Position` – the destination position
+  * `dir`: `number` – the compass direction (in degrees) that the agent will face
+
+* #### `agent.set_assist(assist, on)`
+
+  **Description:** Controls which assists are enabled for the agent
+  
+  **Parameters:**
+
+  * `assist`: `AgentAssist` – the super power of the agent
+  * `on`: `bool` – whether the assist is enabled (`True`) or disabled (`False`)
+
+* #### `agent.place(direction)`
+
+  **Description:** Places an item or block in the world from the agent's currently selected inventory slot
+  
+  **Parameters:**
+
+  * `direction`: `number` – the direction in which to place the item, e.g. `BACK`
+
+* #### `agent.interact(direction)`
+
+  **Description:** Interacts with an item
+  
+  **Parameters:**
+
+  * `direction`: `number` – the `SixDirection` in which to interact with the item
+
+* #### `agent.destroy(direction)`
+
+  **Description:** Commands the agent to destroy a block in the given direction
+  
+  **Parameters:**
+
+  * `direction`: `number` – the direction in which the agent will destroy a block
+
+* #### `agent.till(direction)`
+
+  **Description:** Commands the agent to till soil in the given direction
+  
+  **Parameters:**
+
+  * `direction`: `number` – the direction in which to till the soil
+
+* #### `agent.attack(direction)`
+
+  **Description:** Commands the agent to attack in the given direction
+  
+  **Parameters:**
+
+  * `direction`: `number` – the direction in which to attack
+
+* #### `agent.collect_all()`
+
+  **Description:** Commands the agent to collect all nearby blocks and items
+  
+  **Parameters:**
+  *(none)*
+
+* #### `agent.collect(block)`
+
+  **Description:** Commands the agent to collect a block or item of the specified type
+  
+  **Parameters:**
+
+  * `block`: `number` – the type of block or item to collect
+
+* #### `agent.inspect_block(direction)`
+
+  **Description:** Inspects a block in the specified direction and returns the block ID
+  
+  **Parameters:**
+
+  * `direction`: `number` – the direction in which to inspect, e.g. `FORWARD`
+
+* #### `agent.detect(kind, direction)`
+
+  **Description:** Detects if there is a block next to the agent in the specified direction
+  
+  **Parameters:**
+
+  * `kind`: `AgentDetection` – what the agent should attempt to detect
+  * `direction`: `number` – the direction in which to perform the detection
+
+* #### `agent.set_slot(slot)`
+
+  **Description:** Sets the agent's active inventory slot
+  
+  **Parameters:**
+
+  * `slot`: `number` – the slot index between 1 and 27
+
+* #### `agent.set_item(blockOrItem, count, slot)`
+
+  **Description:** Puts the specified block or item in the agent's inventory
+  
+  **Parameters:**
+
+  * `blockOrItem`: `number` – the block or item to place in a slot
+  * `count`: `number` – the number of blocks or items to put in the slot
+  * `slot`: `number` – the slot index (1–27), e.g. 1
+
+* #### `agent.drop_all(direction)`
+
+  **Description:** Commands the agent to drop its entire inventory in the given direction
+  
+  **Parameters:**
+
+  * `direction`: `number` – the direction in which to drop items
+
+* #### `agent.drop(direction, slot, quantity)`
+
+  **Description:** Drops an item from the inventory
+  
+  **Parameters:**
+
+  * `direction`: `number` – the direction in which to drop the item, e.g. `BACK`
+  * `slot`: `number` – the slot from which the item will be dropped (1–27)
+  * `quantity`: `number` – the number of items to drop
+
+* #### `agent.transfer(quantity, sourceSlot, destinationSlot)`
+
+  **Description:** Transfers items from one inventory slot to another
+  
+  **Parameters:**
+
+  * `quantity`: `number` – the number of items to transfer, e.g. 1
+  * `sourceSlot`: `number` – the source slot index (1–27)
+  * `destinationSlot`: `number` – the destination slot index (1–27)
+
+* #### `agent.get_item_count(slot)`
+
+  **Description:** Gets the number of items in the specified slot
+  
+  **Parameters:**
+
+  * `slot`: `number` – the inventory slot to count items in
+
+* #### `agent.get_item_detail(slot)`
+
+  **Description:** Gets the ID of the item in the specified inventory slot of the agent
+  
+  **Parameters:**
+
+  * `slot`: `number` – the slot from which the item ID is returned
+
+* #### `agent.get_item_space(slot)`
+
+  **Description:** Gets the remaining space in the specified slot
+  
+  **Parameters:**
+
+  * `slot`: `number` – the slot for which the remaining space is calculated
+
+* #### `agent.turn_left()`
+
+  **Description:** Turns the agent left by 90 degrees
+  
+  **Parameters:**
+  *(none)*
+
+* #### `agent.turn_right()`
+
+  **Description:** Turns the agent right by 90 degrees
+  
+  **Parameters:**
+  *(none)*
+
 
 ---
 
@@ -670,6 +887,18 @@ CompassDirection
 - NORTH
 - SOUTH
 
+TurnDirection
+- LEFT
+- RIGHT
+
+SixDirection
+- FORWARD 
+- BACK 
+- LEFT 
+- RIGHT 
+- UP 
+- DOWN
+
 LeverPosition
 Positions for aligning a lever when on or off
 - BLOCK_BOTTOM_EAST_WHEN_OFF
@@ -711,13 +940,31 @@ GameMode
 - SURVIVAL
 - CREATIVE
 
+AgentAssist
+- PLACE_ON_MOVE - the agent will place a block from its active inventory slot every time it moves.
+- PLACE_FROM_ANY_SLOT - if there are no blocks or items in the agent’s active inventory slot, the agent will try to use other inventory slots. 
+- DESTROY_OBSTACLES - if the agent can’t move because of an obstacle, it will destroy the obstacle before moving.
+- DETROY_OBSTACLES - seems to be a typo left in the code, functions the same was as `DESTROY_OBSTACLES`.
+
+AgentDetection
+- BLOCK - detect any block that can be destroyed.
+- REDSTONE - detect redstone only.
+
 ---
 
 # Types
 
 Position
 
+# Other
 
+## Inventory Slot Layout
+
+01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09
+------------------------------------------
+10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18
+------------------------------------------
+19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27
 
 
 
