@@ -6,6 +6,7 @@
   - [Mobs](#mobs)
   - [Agent](#agent)
   - [Gameplay](#gameplay)
+  - [Position](#position)
 - [Classes](#classes)
 - [Enums](#enums)
 - [Types](#types)
@@ -16,8 +17,7 @@
 
 ## Common
 
-def pos(x: number, y: number, z: number): Position
-Creates a new relative position: ~East/West, ~up/down, ~South/North
+
 
 ## Player
 
@@ -946,30 +946,160 @@ Creates a new relative position: ~East/West, ~up/down, ~South/North
   *(none)*
 
 
+## Position
+
+* #### `pos(x, y, z)`
+
+  **Description:** Creates a new relative position (`~East/West`, `~up/down`, `~South/North`). A relative position is the distance in each direction from the player’s feet.
+  
+  **Parameters:**
+
+  * `x`: `number` – the East (+x) or West (−x) distance from the player, in blocks
+  * `y`: `number` – the up (+y) or down (−y) distance from the player, in blocks
+  * `z`: `number` – the South (+z) or North (−z) distance from the player, in blocks
+
+* #### `pos_camera(x, y, z)`
+
+  **Description:** Creates a new camera (player) position: right/left, up/down, in front/behind. This position is relative to the direction the player is currently facing, starting from the player’s feet.
+  
+  **Parameters:**
+
+  * `x`: `number` – the right (+x) or left (−x) distance from the player, in blocks
+  * `y`: `number` – the up (+y) or down (−y) distance from the player, in blocks
+  * `z`: `number` – the forward (+z) or backward (−z) distance from the player, in blocks
+
+* #### `pos_local(x, y, z)`
+
+  **Description:** Creates a new local position (`^right/^left`, `^up/^down`, `^forward/^backward`) based on the direction the player is looking. This position does not align with world axes.
+  
+  **Parameters:**
+
+  * `x`: `number` – the right (+x) or left (−x) distance from the player’s view, in blocks
+  * `y`: `number` – the up (+y) or down (−y) distance from the player’s view, in blocks
+  * `z`: `number` – the forward (+z) or backward (−z) distance from the player’s view, in blocks
+
+* #### `world(x, y, z)`
+
+  **Description:** Creates a new world (absolute) position relative to the world origin `(0, 0, 0)`.
+  
+  **Parameters:**
+
+  * `x`: `number` – the East (+x) or West (−x) distance from world coordinate 0, in blocks
+  * `y`: `number` – the up (+y) or down (−y) distance from world coordinate 0, in blocks
+  * `z`: `number` – the South (+z) or North (−z) distance from world coordinate 0, in blocks
+
+* #### `positions.add(p1, p2)`
+
+  **Description:** Adds two positions together and returns a new position. The result has the same type as the first position.
+  
+  **Parameters:**
+
+  * `p1`: `Position` – the first position (determines the result type)
+  * `p2`: `Position` – the second position to add
+
+* #### `positions.equals(p1, p2)`
+
+  **Description:** Compares two positions to check if they are equivalent in the world. Relative and local positions are compared using their actual world positions.
+  
+  **Parameters:**
+
+  * `p1`: `Position` – the first position
+  * `p2`: `Position` – the second position
+
+* #### `randpos(p1, p2)`
+
+  **Description:** Picks a random position inside a cube-shaped region defined by two corner positions.
+  
+  **Parameters:**
+
+  * `p1`: `Position` – the first corner of the cube
+  * `p2`: `Position` – the opposite corner of the cube
+
+* #### `positions.ground_position(pos)`
+
+  **Description:** Finds the ground position beneath the given position. Solid blocks and liquids are treated as ground.
+  
+  **Parameters:**
+
+  * `pos`: `Position` – the position to start searching from
+
+* #### `positions.to_compass_direction(deg)`
+
+  **Description:** Converts an angle in degrees to the closest compass direction used in the game.
+  
+  **Parameters:**
+
+  * `deg`: `number` – the angle in degrees to convert
+
 ---
 
-# Classes
+## Classes
 
-### TargetSelector
-(method) TargetSelector.at_coordinate(p: Position): None
-Give new coordinates, a position, to a target selector. 
-p: set the selector to these coordinates
+### `TargetSelector`
 
-(method) TargetSelector.within_radius(radius: number): None
-Sets the farthest (maximum) distance from this selector’s base coordinates. 
-radius: the maximum distance (in blocks) for this target selector, like: 5
+* #### `TargetSelector.at_coordinate(p)`
 
-(method) TargetSelector.add_rule(rule: str, value: str): None
-Add a rule (called arguments in the Minecraft wiki) to this target selector.
-rule: the rule you want to add, such as: “type”
-value: the value for the rule, like: “chicken”
+  **Description:** Sets the base coordinates of the target selector.
+  
+  **Parameters:**
 
-(method) TargetSelector.outside_radius(radius: number): None
-Sets the closest (minimum) distance from this selector’s base coordinates. Only mobs that are farther than the distance chosen from this selector’s coordinates are selected.
-radius: the minimum distance (in blocks) for this target selector, like: 10
+  * `p`: `Position` – the position to assign to the selector
 
-(method) TargetSelector.to_string(): str
-Return a string that has the game name (notation) for this target selector. When used inside a say block, this block will print the names of selected entities.
+* #### `TargetSelector.within_radius(radius)`
+
+  **Description:** Sets the maximum distance from the selector’s base coordinates.
+  
+  **Parameters:**
+
+  * `radius`: `number` – the maximum distance in blocks, e.g. 5
+
+* #### `TargetSelector.add_rule(rule, value)`
+
+  **Description:** Adds a rule (argument) to the target selector.
+  
+  **Parameters:**
+
+  * `rule`: `str` – the rule name, e.g. `"type"`
+  * `value`: `str` – the rule value, e.g. `"chicken"`
+
+* #### `TargetSelector.outside_radius(radius)`
+
+  **Description:** Sets the minimum distance from the selector’s base coordinates.
+  
+  **Parameters:**
+
+  * `radius`: `number` – the minimum distance in blocks, e.g. 10
+
+* #### `TargetSelector.to_string()`
+
+  **Description:** Returns the game notation string for this target selector.
+  
+  **Parameters:**
+  *(none)*
+
+### `Position`
+
+* #### `Position.get_value(direction)`
+
+  **Description:** Gets the coordinate value of the position along one axis.
+  
+  **Parameters:**
+
+  * `direction`: `Axis` – the axis to query (`x`, `y`, or `z`)
+
+* #### `Position.to_world()`
+
+  **Description:** Converts the position into a world (absolute) position.
+  
+  **Parameters:**
+  *(none)*
+
+* #### `Position.to_string()`
+
+  **Description:** Returns a human-readable string representation of the position.
+  
+  **Parameters:**
+  *(none)*
 
 
 ---
@@ -1122,22 +1252,21 @@ Lists all mobs that are considered monsters.
 - SHOW_COORDINATES *(E)*
 - TNT_EXPLODES *(E)*
 
+Axis
+TODO
+
 ---
-
-# Types
-
-Position
 
 # Other
 
 ## Inventory Slot Layout
-
-01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09
-------------------------------------------
-10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18
-------------------------------------------
-19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27
-
+```
+| 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 |
+|----|----|----|----|----|----|----|----|----|
+| 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 |
+|----|----|----|----|----|----|----|----|----|
+| 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 |
+```
 
 
 
