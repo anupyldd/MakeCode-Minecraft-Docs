@@ -11,7 +11,6 @@
 - [Enums](#enums)
 - [Types](#types)
 - [Other](#other)
-  - [Inventory Slot Layout](#inventory-slot-layout)
     
 # Functions
 
@@ -1108,121 +1107,121 @@
 
 ### TravelMethod
 The method of travel for player or mob
-- WALK (1) - Walking normally (default if on ground)
-- SWIM_WATER (2) - Swimming in water
-- FALL (3) - In the air when not flying (Falling up or down)
-- CLIMB (4) - Climbing a ladder
-- SWIM_LAVA (5) - Swimming in lava
-- FLY (6) - Flying
-- RIDING (7) - Riding anything
-- SNEAK (8) - Sneaking
-- SPRINT (9) - Sprinting
-- BOUNCE (10) - bounce
-- FROST_WALK (11) - Frost walk over water
-- TELEPORT (12) - Teleport
-- UNKNOWN (-1) - Unknown travel method
+- `WALK` (1) - Walking normally (default if on ground)
+- `SWIM_WATER` (2) - Swimming in water
+- `FALL` (3) - In the air when not flying (Falling up or down)
+- `CLIMB` (4) - Climbing a ladder
+- `SWIM_LAVA` (5) - Swimming in lava
+- `FLY` (6) - Flying
+- `RIDING` (7) - Riding anything
+- `SNEAK` (8) - Sneaking
+- `SPRINT` (9) - Sprinting
+- `BOUNCE` (10) - bounce
+- `FROST_WALK` (11) - Frost walk over water
+- `TELEPORT` (12) - Teleport
+- `UNKNOWN` (-1) - Unknown travel method
 
 ### FillOperation
 Fill options for exixting blocks. Control keeping, replacing, or destroying existing blocks
-- DESTROY - Replaces all blocks (including air) in the fill region with the specified block, dropping the existing blocks (including those that are unchanged) and block contents as entities as if they had been mined with an unenchanted diamond shovel or pickaxe. (Blocks that can only be mined with shears, such as vines, will not drop; neither will liquids.)
-- HOLLOW - Replaces only blocks on the outer edge of the fill region with the specified block. Inner blocks are changed to air, dropping their contents as entities but not themselves. If the fill region has no inner blocks (because it is smaller than three blocks in at least one dimension), acts like replace.
-- KEEP - Replaces only air blocks in the fill region with the specified block.
-- OUTLINE - Replaces only blocks on the outer edge of the fill region with the specified block. Inner blocks are not affected. If the fill region has no inner blocks (because it is smaller than three blocks in at least one dimension), acts like replace.
-- REPLACE - Replaces all blocks (including air) in the fill region with the specified block, without dropping blocks or block contents as entities.
+- `DESTROY` - Replaces all blocks (including air) in the fill region with the specified block, dropping the existing blocks (including those that are unchanged) and block contents as entities as if they had been mined with an unenchanted diamond shovel or pickaxe. (Blocks that can only be mined with shears, such as vines, will not drop; neither will liquids.)
+- `HOLLOW` - Replaces only blocks on the outer edge of the fill region with the specified block. Inner blocks are changed to air, dropping their contents as entities but not themselves. If the fill region has no inner blocks (because it is smaller than three blocks in at least one dimension), acts like replace.
+- `KEEP` - Replaces only air blocks in the fill region with the specified block.
+- `OUTLINE` - Replaces only blocks on the outer edge of the fill region with the specified block. Inner blocks are not affected. If the fill region has no inner blocks (because it is smaller than three blocks in at least one dimension), acts like replace.
+- `REPLACE` - Replaces all blocks (including air) in the fill region with the specified block, without dropping blocks or block contents as entities.
 
 ### CompassDirection
-- WEST
-- EAST
-- NORTH
-- SOUTH
+- `WEST`
+- `EAST`
+- `NORTH`
+- `SOUTH`
 
 ### TurnDirection
-- LEFT
-- RIGHT
+- `LEFT`
+- `RIGHT`
 
 ### SixDirection
-- FORWARD 
-- BACK 
-- LEFT 
-- RIGHT 
-- UP 
-- DOWN
+- `FORWARD`
+- `BACK`
+- `LEFT`
+- `RIGHT`
+- `UP`
+- `DOWN`
 
 ### LeverPosition
 Positions for aligning a lever when on or off
-- BLOCK_BOTTOM_EAST_WHEN_OFF
-- BLOCK_BOTTOM_POINTS_SOUTH_WHEN_OFF
-- BLOCK_TOP_POINTS_EAST_WHEN_OFF
-- BLOCK_TOP_POINTS_SOUTH_WHEN_OFF
-- BLOCK_SIDE_FACING_EAST
-- BLOCK_SIDE_FACING_WEST
-- BLOCK_SIDE_FACING_NORTH
-- BLOCK_SIDE_FACING_SOUTH
+- `BLOCK_BOTTOM_EAST_WHEN_OFF`
+- `BLOCK_BOTTOM_POINTS_SOUTH_WHEN_OFF`
+- `BLOCK_TOP_POINTS_EAST_WHEN_OFF`
+- `BLOCK_TOP_POINTS_SOUTH_WHEN_OFF`
+- `BLOCK_SIDE_FACING_EAST`
+- `BLOCK_SIDE_FACING_WEST`
+- `BLOCK_SIDE_FACING_NORTH`
+- `BLOCK_SIDE_FACING_SOUTH`
 
 ### ComparatorMode
 Comparator modes
-- COMPARE
-- SUBTRACT
+- `COMPARE`
+- `SUBTRACT`
 
 ### TestForBlocksMask
-- ALL - Every block in the source and destination regions must match exactly.
-- MASKED - Air blocks in the source region will match any block in the destination region.
+- `ALL` - Every block in the source and destination regions must match exactly.
+- `MASKED` - Air blocks in the source region will match any block in the destination region.
 
 ### CloneMode
-- FORCE - The cloned region is overwritten by the destination region if the two regions overlap.
-- MOVE - the cloned region is replaced with air after the cloning.
-- NORMAL - The cloned region is not changed; if the destination region overlaps it, then the clone operation does nothing.
+- `FORCE` - The cloned region is overwritten by the destination region if the two regions overlap.
+- `MOVE` - the cloned region is replaced with air after the cloning.
+- `NORMAL` - The cloned region is not changed; if the destination region overlaps it, then the clone operation does nothing.
 
 ### MonsterMob
 Lists all mobs that are considered monsters.
 
 ### TargetSelectorKind
-- ALL_ENTITIES - Select all players and mobs.
-- ALL_PLAYERS - Select all players in the world.
-- LOCAL_PLAYER - Select the current player (you).
-- MY_AGENT - Select the agent.
-- NEAREST_PLAYER - Select the player nearest to the world origin.
-- RANDOM_PLAYER - Select a random player in the world.
+- `ALL_ENTITIES` - Select all players and mobs.
+- `ALL_PLAYERS` - Select all players in the world.
+- `LOCAL_PLAYER` - Select the current player (you).
+- `MY_AGENT` - Select the agent.
+- `NEAREST_PLAYER` - Select the player nearest to the world origin.
+- `RANDOM_PLAYER` - Select a random player in the world.
 
 ### GameMode
-- SURVIVAL - This is the default Minecraft playing mode. Players have to gather the materials they want to craft or place. The player’s health, hunger, experience and oxygen are enabled. Tools and equipment durability is enabled. In this mode, the player can die and will return to the spawn point if they do.
-- CREATIVE - Players can get an unlimited amount of blocks or items in the game. Players can fly around in the world and destroy blocks instantly. This mode is meant for players that want to spend time building things.
-- ADVENTURE - Kind of the same as survival mode, but it has more restrictions on placing certain blocks and destroying blocks in the game world. This mode is meant for playing in worlds where the players must solve puzzles or complete challenges.
+- `SURVIVAL` - This is the default Minecraft playing mode. Players have to gather the materials they want to craft or place. The player’s health, hunger, experience and oxygen are enabled. Tools and equipment durability is enabled. In this mode, the player can die and will return to the spawn point if they do.
+- `CREATIVE` - Players can get an unlimited amount of blocks or items in the game. Players can fly around in the world and destroy blocks instantly. This mode is meant for players that want to spend time building things.
+- `ADVENTURE` - Kind of the same as survival mode, but it has more restrictions on placing certain blocks and destroying blocks in the game world. This mode is meant for playing in worlds where the players must solve puzzles or complete challenges.
 
 ### AgentAssist
-- PLACE_ON_MOVE - the agent will place a block from its active inventory slot every time it moves.
-- PLACE_FROM_ANY_SLOT - if there are no blocks or items in the agent’s active inventory slot, the agent will try to use other inventory slots. 
-- DESTROY_OBSTACLES - if the agent can’t move because of an obstacle, it will destroy the obstacle before moving.
-- DETROY_OBSTACLES - seems to be a typo left in the code, functions the same was as `DESTROY_OBSTACLES`.
+- `PLACE_ON_MOVE` - the agent will place a block from its active inventory slot every time it moves.
+- `PLACE_FROM_ANY_SLOT` - if there are no blocks or items in the agent’s active inventory slot, the agent will try to use other inventory slots. 
+- `DESTROY_OBSTACLES` - if the agent can’t move because of an obstacle, it will destroy the obstacle before moving.
+- `DETROY_OBSTACLES` - seems to be a typo left in the code, functions the same was as `DESTROY_OBSTACLES`.
 
 ### AgentDetection
-- BLOCK - detect any block that can be destroyed.
-- REDSTONE - detect redstone only.
+- `BLOCK` - detect any block that can be destroyed.
+- `REDSTONE` - detect redstone only.
 
 ### Weather
-- CLEAR - sunny, no rain or storms
-- RAIN - rainy, no sun
-- THUNDER - thunderstorm, lot’s of rain
+- `CLEAR` - sunny, no rain or storms
+- `RAIN` - rainy, no sun
+- `THUNDER` - thunderstorm, lot’s of rain
 
 ### DayTime
-- DAY (0) - Equals 1,000 ticks (7:00 AM)
-- MIDDAY (6000) - Equals 6,000 ticks (12:00 PM)
-- DUSK (12000) - Equals 12,000 ticks (6:00 PM)
-- NIGHT (14000) - Equals 13,000 ticks (7:00 PM)
-- MIDNIGHT (18000) - Equals to 18,000 ticks (12:00 AM)
-- DAWN (23000) - Equals 0 ticks (6:00 AM)
+- `DAY` (0) - Equals 1,000 ticks (7:00 AM)
+- `MIDDAY` (6000) - Equals 6,000 ticks (12:00 PM)
+- `DUSK` (12000) - Equals 12,000 ticks (6:00 PM)
+- `NIGHT` (14000) - Equals 13,000 ticks (7:00 PM)
+- `MIDNIGHT` (18000) - Equals to 18,000 ticks (12:00 AM)
+- `DAWN` (23000) - Equals 0 ticks (6:00 AM)
 
 ### GameDifficulty
-- PEACEFUL - monsters cannot spawn and you get more hearts quickly.
-- EASY - easy gameplay level.
-- NORMAL - normal gameplay level.
-- HARD - the really difficult gameplay level.
+- `PEACEFUL` - monsters cannot spawn and you get more hearts quickly.
+- `EASY` - easy gameplay level.
+- `NORMAL` - normal gameplay level.
+- `HARD` - the really difficult gameplay level.
 
 ### TimeQuery
-- DAY - the number of game days since the creation of the world
-- DAY_TIME - the current time of day in the game.
-- GAME_TIME - the number of game ticks since the creation of the world.
-- REAL_LIFE - the real-life time of day, expressed in Minecraft game ticks.
+- `DAY` - the number of game days since the creation of the world
+- `DAY_TIME` - the current time of day in the game.
+- `GAME_TIME` - the number of game ticks since the creation of the world.
+- `REAL_LIFE` - the real-life time of day, expressed in Minecraft game ticks.
 
 ### GameRule
 
@@ -1233,27 +1232,29 @@ Lists all mobs that are considered monsters.
 
 **Rules:**
     
-- PV_P *(DE)* - players can attack each other 
-- DROWNING_DAMAGE *(DE)* - staying for too long under water will damage the player 
-- FALL_DAMAGE *(DE)* - falling from really high will damage the player
-- FIRE_DAMAGE *(DE)* - fire will damage the player 
-- DAYLIGHT_CYCLE *(DE)* - time will advance in the game 
-- MOB_LOOT *(DE)* - mobs will drop loot upon dying 
-- MOB_SPAWNING *(DE)* - mobs are able to spawn 
-- MOB_GRIEFING *(DE)* - mobs can affect the game world (for example, endermen picking up blocks, or creepers exploding the environment) 
-- WEATHER_CYCLE *(DE)* - weather will change naturally 
-- BLOCK_DROPS *(D)* - blocks that are successfully mined will drop as an item and be collectible by players 
-- KEEP_INVENTORY *(DE)* - players will not lose their inventory upon dying
-- COMMAND_BLOCK_OUTPUT *(E)*
-- DO_FIRE_TICK *(E)*
-- NATURAL_REGENERATION *(E)*
-- TILE_DROPS *(E)*
-- ENTITY_DROPS *(E)*
-- SHOW_COORDINATES *(E)*
-- TNT_EXPLODES *(E)*
+- `PV_P` *(DE)* - players can attack each other 
+- `DROWNING_DAMAGE` *(DE)* - staying for too long under water will damage the player 
+- `FALL_DAMAGE` *(DE)* - falling from really high will damage the player
+- `FIRE_DAMAGE` *(DE)* - fire will damage the player 
+- `DAYLIGHT_CYCLE` *(DE)* - time will advance in the game 
+- `MOB_LOOT` *(DE)* - mobs will drop loot upon dying 
+- `MOB_SPAWNING` *(DE)* - mobs are able to spawn 
+- `MOB_GRIEFING` *(DE)* - mobs can affect the game world (for example, endermen picking up blocks, or creepers exploding the environment) 
+- `WEATHER_CYCLE` *(DE)* - weather will change naturally 
+- `BLOCK_DROPS` *(D)* - blocks that are successfully mined will drop as an item and be collectible by players 
+- `KEEP_INVENTORY` *(DE)* - players will not lose their inventory upon dying
+- `COMMAND_BLOCK_OUTPUT` *(E)*
+- `DO_FIRE_TICK` *(E)*
+- `NATURAL_REGENERATION` *(E)*
+- `TILE_DROPS` *(E)*
+- `ENTITY_DROPS` *(E)*
+- `SHOW_COORDINATES` *(E)*
+- `TNT_EXPLODES` *(E)*
 
-Axis
-TODO
+### Axis
+- `X`
+- `Y`
+- `Z`
 
 ---
 
