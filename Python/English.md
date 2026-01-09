@@ -1,6 +1,5 @@
 ### Table of contents:
 - [Functions](#functions)
-  - [Common](#common)
   - [Player](#player)
   - [Blocks](#blocks)
   - [Mobs](#mobs)
@@ -13,10 +12,6 @@
 - [Other](#other)
     
 # Functions
-
-## Common
-
-
 
 ## Player
 
