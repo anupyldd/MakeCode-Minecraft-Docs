@@ -1124,10 +1124,10 @@ The method of travel for player or mob
 ### FillOperation
 Fill options for exixting blocks. Control keeping, replacing, or destroying existing blocks
 - `DESTROY` - Replaces all blocks (including air) in the fill region with the specified block, dropping the existing blocks (including those that are unchanged) and block contents as entities as if they had been mined with an unenchanted diamond shovel or pickaxe. (Blocks that can only be mined with shears, such as vines, will not drop; neither will liquids.)
-- `HOLLOW` - Replaces only blocks on the outer edge of the fill region with the specified block. Inner blocks are changed to air, dropping their contents as entities but not themselves. If the fill region has no inner blocks (because it is smaller than three blocks in at least one dimension), acts like replace.
+- `HOLLOW` - Replaces only blocks on the outer edge of the fill region with the specified block. Inner blocks are changed to air, dropping their contents as entities but not themselves. If the fill region has no inner blocks (because it is smaller than three blocks in at least one dimension), acts like replace.
 - `KEEP` - Replaces only air blocks in the fill region with the specified block.
 - `OUTLINE` - Replaces only blocks on the outer edge of the fill region with the specified block. Inner blocks are not affected. If the fill region has no inner blocks (because it is smaller than three blocks in at least one dimension), acts like replace.
-- `REPLACE` - Replaces all blocks (including air) in the fill region with the specified block, without dropping blocks or block contents as entities.
+- `REPLACE` - Replaces all blocks (including air) in the fill region with the specified block, without dropping blocks or block contents as entities.
 
 ### CompassDirection
 - `WEST`
@@ -1184,9 +1184,9 @@ Lists all mobs that are considered monsters.
 - `RANDOM_PLAYER` - Select a random player in the world.
 
 ### GameMode
-- `SURVIVAL` - This is the default Minecraft playing mode. Players have to gather the materials they want to craft or place. The player’s health, hunger, experience and oxygen are enabled. Tools and equipment durability is enabled. In this mode, the player can die and will return to the spawn point if they do.
-- `CREATIVE` - Players can get an unlimited amount of blocks or items in the game. Players can fly around in the world and destroy blocks instantly. This mode is meant for players that want to spend time building things.
-- `ADVENTURE` - Kind of the same as survival mode, but it has more restrictions on placing certain blocks and destroying blocks in the game world. This mode is meant for playing in worlds where the players must solve puzzles or complete challenges.
+- `SURVIVAL` - This is the default Minecraft playing mode. Players have to gather the materials they want to craft or place. The player’s health, hunger, experience and oxygen are enabled. Tools and equipment durability is enabled. In this mode, the player can die and will return to the spawn point if they do.
+- `CREATIVE` - Players can get an unlimited amount of blocks or items in the game. Players can fly around in the world and destroy blocks instantly. This mode is meant for players that want to spend time building things.
+- `ADVENTURE` - Kind of the same as survival mode, but it has more restrictions on placing certain blocks and destroying blocks in the game world. This mode is meant for playing in worlds where the players must solve puzzles or complete challenges.
 
 ### AgentAssist
 - `PLACE_ON_MOVE` - the agent will place a block from its active inventory slot every time it moves.
