@@ -7,6 +7,7 @@
   - [Gameplay](#gameplay)
   - [Position](#position)
   - [Math](#math)
+  - [Loops](#loops)
 - [Classes](#classes)
 - [Enums](#enums)
 - [Types](#types)
@@ -1038,6 +1039,32 @@
 
   * `min`: `number` – the lower inclusive bound
   * `max`: `number` – the upper inclusive bound
+
+## Loops
+
+* #### `loops.forever(body)`
+
+  **Description:** Run a part of the program in the background and keep running it over again. The code you have in a forever loop will run and keep repeating itself the whole time your program is active. Code in other parts of your program won’t stop while your forever loop is running. This includes other `forever` loops and the `run in background` block.
+  
+  **Parameters:**
+
+  * `body`: `() -> None` – code to repeat forever
+  
+* #### `loops.run_in_background(handler)`
+  
+  **Description:** Run some other code at the same time that your main program code runs. Sometimes you want your program to work on more than one thing at a time. The main part of your program is always put in `on start`. But, you can also put some other part of your program in `run in background`. This is useful when you want your program to keep doing important things and you don’t want to wait for some other actions to happen first.
+  
+  **Parameters:**
+
+  * `handler`: `() -> None` – the code to run in the background.
+  
+* #### `loops.pause(ms)`
+  
+  **Description:** When code in a block comes to a pause, it will wait the amount of time you tell it to. Code in blocks like `forever` and `run in background` will keep running while code in some other block is waiting at a `pause`.
+  
+  **Parameters:**
+  
+  * `ms`: `() -> None` – the number of milliseconds that you want to pause for. So, 100 milliseconds = 1/10 second, and 1000 milliseconds = 1 second.
 
 ---
 
