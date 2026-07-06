@@ -2721,7 +2721,7 @@ WATER_WAKE = Particle.WaterWake
 WITHER_BOSS_INVULNERABLE = Particle.WitherBossInvulnerable
 ```
 
-# Другое
+# Прочее
 
 ## Расположение слотов инвенторя
 ```
